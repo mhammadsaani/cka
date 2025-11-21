@@ -18,6 +18,9 @@ spec:
       containers: 
         - name: nginx-container
           image: nginx
+          env:
+          - name: key
+            vaule: "value"
 
 ---
 apiVersion: v1
