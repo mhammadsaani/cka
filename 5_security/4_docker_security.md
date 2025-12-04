@@ -33,3 +33,6 @@ Docker Security
 
 Container and Host share the same kernal. Container has its own namespace and cannot see any other processes. Host has the main namesapce 
 and can view all the processees including the Docker processes.
+
+Containers are isolated via namespaces in kernal. Each container is its own namespace and can only see what is in its namespace.
+But host can see all the processes. 
