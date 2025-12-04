@@ -23,4 +23,4 @@ Following are the ingress selectors
 They can be passed as separate elements of list. If passes as separate elements, then it will work as "or operation". 
 If combined in one rule, then will be used as "and operation"
 
-[image](./images/network_policies.png)
+![image](./images/network_policies.png)
