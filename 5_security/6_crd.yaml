@@ -1,0 +1,73 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: backuppolicies.backups.com
+spec:
+  group: backups.com # we provide in the apiVersion: 
+  scope: Namespaced
+  names:
+    plural: backuppolicies
+    singular: backuppolicy
+    kind: BackupPolicy
+    shortNames:
+      - bp
+  versions:
+    - name: v1 # version, very important, there can be multiple versions lke v1, v1alpha
+      served: true # which version it uses when you hit commands like k get bp
+      storage: true  # Which schema format should it follow to store the crd in the etcd.
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                targetPVC:
+                  type: string
+                  description: "PVC name to back up"
+                schedule:
+                  type: string
+                  description: "Cron schedule for backup"
+                retentionDays:
+                  type: integer
+                  minimum: 1
+                destination:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: ["s3", "nfs"]
+                    s3:
+                      type: object
+                      properties:
+                        bucket:
+                          type: string
+                        folder:
+                          type: string
+                        secretRef:
+                          type: string
+                    nfs:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                image:
+                  type: string
+                  description: "Backup container image"
+                  default: "busybox"
+              required: ["targetPVC", "schedule", "retentionDays", "destination"]
+            status:
+              type: object
+              properties:
+                lastBackup:
+                  type: string
+                backupsStored:
+                  type: integer
+                message:
+                  type: string
+      subresources:
+        status: {}
+        scale:
+          specReplicasPath: .spec.replicas
+          statusReplicasPath: .status.replicas
+

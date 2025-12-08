@@ -16,3 +16,7 @@ When you set the temperature, that's telling the thermostat about your desired s
 
 In Kubernetes, controllers are control loops that watch the state of your cluster, then make or request changes where needed. Each controller tries to move the current cluster state closer to the desired state.
 
+
+Imagine you want to make custom objects other than the one k8s already have like Deployments for your specific versions. You cannot do them directly, but
+you can achieve this via the Custom Resouce Definition. A custom resource definition as the name suggests, allows you to create a custom resource. 
+![CRD](./images/crd.png)
