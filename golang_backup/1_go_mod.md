@@ -1,3 +1,31 @@
+<!-- Questions to MySelf for revision -->
+
+what is a package in go? and what is a module? 
+what are different types of programs in go?
+what are the components we. write in go.mod file
+what is the meaning of each component.
+Try to think of the syntax, as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Module is a collection of go packages.
 
 There are two types of go programs
@@ -31,3 +59,7 @@ require (
     .
     .
 )
+
+
+
+<!-- Questions to MySelf for revision -->

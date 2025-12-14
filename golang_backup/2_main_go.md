@@ -1,3 +1,30 @@
+What is the go way of telling that the following variable/function will be exposed and can be used in other package.
+why go build filename.go is slow than go run filename.go?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Packages are a way to organize code in meaningful way in golang.
 
 package main  -> Tells that this code will be treated as executable
